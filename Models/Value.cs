@@ -1,11 +1,8 @@
-namespace PortalRandkowy.API.Models
-{
-    public class value
-    {
-        private int id;
-        private string name;
-
-        public int Id { get => id; set => id = value; }
-        public string Name { get => name; set => name = value; }
+using Microsoft.EntityFrameworkCore;
+using PortalRandkowy.Api.Data;
+namespace PortalRandkowy.Api.Models {
+    public class Value {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

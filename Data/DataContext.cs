@@ -1,11 +1,9 @@
-namespace PortalRandkowy.API.Data
-{
-    public class DataContext : DbContext
-    {
-        private DbSet<Value> values;
+using Microsoft.EntityFrameworkCore;
+using PortalRandkowy.Api.Models;
+namespace PortalRandkowy.Api.Data {
 
-        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
-
-        public DbSet<Value> Values { get => values; set => values = value; }
+    public class DataContext : DbContext {
+        public DataContext (DbContextOptions<DataContext> options) : base (options) { }
+        public DbSet<Value> Values { get; set; }
     }
 }
