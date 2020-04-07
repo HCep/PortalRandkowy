@@ -15,16 +15,30 @@ namespace PortalRandkowy.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly DataContext _dataContext;
+
+        public Startup(IConfiguration configuration, DataContext dataContext)
         {
+            _dataContext = dataContext;
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration)
+        {
+            this.Configuration = configuration;
+
+        }
+        public Startup(IConfiguration configuration) 
+        {
+            this.Configuration = configuration;
+               
+        }
+                public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataContext>(x => x.UseSqlite("Conectionstring"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
